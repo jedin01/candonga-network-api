@@ -14,6 +14,6 @@ class CategoriaVeiculo extends Model
 
     public function paragens()
     {
-        return $this->hasMany(Paragem::class);
+        return $this->hasMany(Paragem::class, "id_categoria", "id");
     }
 }
