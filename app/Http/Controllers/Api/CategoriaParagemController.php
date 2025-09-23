@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Bairro;
+use App\Models\CategoriaParagem;
 
-class BairroController extends Controller
+class CategoriaParagemController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $bairros = Bairro::all();
-        return response()->json($bairros, 200);
+        $categorias = CategoriaParagem::all();
+        return response()->json($categorias, 200);
     }
 
     /**
@@ -24,11 +24,12 @@ class BairroController extends Controller
     {
         $validated = $request->validate([
             "nome" => "required|string|max:255",
+            "descricao" => "nullable|string|max:500",
         ]);
 
-        $bairro = Bairro::create($validated);
+        $categoria = CategoriaParagem::create($validated);
 
-        return response()->json($bairro, 201);
+        return response()->json($categoria, 201);
     }
 
     /**
@@ -36,18 +37,18 @@ class BairroController extends Controller
      */
     public function show(string $id)
     {
-        $bairro = Bairro::find($id);
+        $categoria = CategoriaParagem::find($id);
 
-        if (!$bairro) {
+        if (!$categoria) {
             return response()->json(
                 [
-                    "message" => "Bairro não encontrado",
+                    "message" => "Categoria de paragem não encontrada",
                 ],
                 404,
             );
         }
 
-        return response()->json($bairro, 200);
+        return response()->json($categoria, 200);
     }
 
     /**
@@ -55,12 +56,12 @@ class BairroController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $bairro = Bairro::find($id);
+        $categoria = CategoriaParagem::find($id);
 
-        if (!$bairro) {
+        if (!$categoria) {
             return response()->json(
                 [
-                    "message" => "Bairro não encontrado",
+                    "message" => "Categoria de paragem não encontrada",
                 ],
                 404,
             );
@@ -68,11 +69,12 @@ class BairroController extends Controller
 
         $validated = $request->validate([
             "nome" => "sometimes|string|max:255",
+            "descricao" => "sometimes|nullable|string|max:500",
         ]);
 
-        $bairro->update($validated);
+        $categoria->update($validated);
 
-        return response()->json($bairro, 200);
+        return response()->json($categoria, 200);
     }
 
     /**
@@ -80,22 +82,22 @@ class BairroController extends Controller
      */
     public function destroy(string $id)
     {
-        $bairro = Bairro::find($id);
+        $categoria = CategoriaParagem::find($id);
 
-        if (!$bairro) {
+        if (!$categoria) {
             return response()->json(
                 [
-                    "message" => "Bairro não encontrado",
+                    "message" => "Categoria de paragem não encontrada",
                 ],
                 404,
             );
         }
 
-        $bairro->delete();
+        $categoria->delete();
 
         return response()->json(
             [
-                "message" => "Bairro removido com sucesso",
+                "message" => "Categoria de paragem removida com sucesso",
             ],
             200,
         );

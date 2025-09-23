@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Bairro;
+use App\Models\CategoriaVeiculo;
 
-class BairroController extends Controller
+class CategoriaVeiculoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $bairros = Bairro::all();
-        return response()->json($bairros, 200);
+        $categorias = CategoriaVeiculo::all();
+        return response()->json($categorias, 200);
     }
 
     /**
@@ -26,9 +26,9 @@ class BairroController extends Controller
             "nome" => "required|string|max:255",
         ]);
 
-        $bairro = Bairro::create($validated);
+        $categoria = CategoriaVeiculo::create($validated);
 
-        return response()->json($bairro, 201);
+        return response()->json($categoria, 201);
     }
 
     /**
@@ -36,18 +36,18 @@ class BairroController extends Controller
      */
     public function show(string $id)
     {
-        $bairro = Bairro::find($id);
+        $categoria = CategoriaVeiculo::find($id);
 
-        if (!$bairro) {
+        if (!$categoria) {
             return response()->json(
                 [
-                    "message" => "Bairro não encontrado",
+                    "message" => "Categoria de veículo não encontrada",
                 ],
                 404,
             );
         }
 
-        return response()->json($bairro, 200);
+        return response()->json($categoria, 200);
     }
 
     /**
@@ -55,12 +55,12 @@ class BairroController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $bairro = Bairro::find($id);
+        $categoria = CategoriaVeiculo::find($id);
 
-        if (!$bairro) {
+        if (!$categoria) {
             return response()->json(
                 [
-                    "message" => "Bairro não encontrado",
+                    "message" => "Categoria de veículo não encontrada",
                 ],
                 404,
             );
@@ -70,9 +70,9 @@ class BairroController extends Controller
             "nome" => "sometimes|string|max:255",
         ]);
 
-        $bairro->update($validated);
+        $categoria->update($validated);
 
-        return response()->json($bairro, 200);
+        return response()->json($categoria, 200);
     }
 
     /**
@@ -80,22 +80,22 @@ class BairroController extends Controller
      */
     public function destroy(string $id)
     {
-        $bairro = Bairro::find($id);
+        $categoria = CategoriaVeiculo::find($id);
 
-        if (!$bairro) {
+        if (!$categoria) {
             return response()->json(
                 [
-                    "message" => "Bairro não encontrado",
+                    "message" => "Categoria de veículo não encontrada",
                 ],
                 404,
             );
         }
 
-        $bairro->delete();
+        $categoria->delete();
 
         return response()->json(
             [
-                "message" => "Bairro removido com sucesso",
+                "message" => "Categoria de veículo removida com sucesso",
             ],
             200,
         );
