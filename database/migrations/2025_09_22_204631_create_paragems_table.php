@@ -16,9 +16,9 @@ return new class extends Migration
                 $table->string('nome');
                 $table->decimal('latitude', 10, 7);
                 $table->decimal('longitude', 10, 7);
-                $table->unsignedBigInteger('id_bairro');
+                $table->unsignedBigInteger('id_categoria');
                 $table->timestamps();
-                $table->foreign('id_bairro')->references('id')->on('bairros')->onDelete('cascade');
+                $table->foreign('id_categoria')->references('id')->on('categoria_veiculos')->onDelete('cascade');
         });
     }
 

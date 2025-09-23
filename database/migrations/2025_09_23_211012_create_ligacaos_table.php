@@ -10,16 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create("ligacoes", function (Blueprint $table) {
+        Schema::create("rotas", function (Blueprint $table) {
             $table->id();
 
             $table
-                ->foreignId("origem_id")
+                ->foreignId("id_origem")
                 ->constrained("paragens")
                 ->onDelete("cascade");
 
             $table
-                ->foreignId("destino_id")
+                ->foreignId("id_destino")
                 ->constrained("paragens")
                 ->onDelete("cascade");
 

@@ -10,10 +10,16 @@ class Paragem extends Model
 {
     /** @use HasFactory<\Database\Factories\ParagemFactory> */
     use HasFactory;
-    
+
     use SoftDeletes;
-    
-    protected $fillable = ['nome', 'latitude', 'longitude', 'id_bairro'];
+
+    protected $fillable = ['nome', 'latitude', 'longitude', 'id_categoria'];
     protected $table = 'paragens';
-    
+
+
+    public function categoria()
+    {
+        return $this->belongsTo(CategoriaVeiculo::class, "id_categoria");
+    }
+
 }
