@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Paragem extends Model
 {
     /** @use HasFactory<\Database\Factories\ParagemFactory> */
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     use SoftDeletes;
 
