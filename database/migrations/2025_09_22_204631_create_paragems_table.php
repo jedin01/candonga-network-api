@@ -18,6 +18,7 @@ return new class extends Migration
                 $table->decimal('longitude', 10, 7);
                 $table->unsignedBigInteger('id_categoria');
                 $table->timestamps();
+                $table->softDeletes();
                 $table->foreign('id_categoria')->references('id')->on('categoria_veiculos')->onDelete('cascade');
         });
     }

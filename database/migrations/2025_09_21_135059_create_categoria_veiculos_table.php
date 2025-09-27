@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('categoria_veiculos', function (Blueprint $table) {
             $table->id();
             $table->string("nome");
+            $table->softDeletes();
             $table->timestamps();
         });
     }

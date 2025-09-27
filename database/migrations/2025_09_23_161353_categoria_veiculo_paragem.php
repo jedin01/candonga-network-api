@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('id_paragem'); 
             $table->foreign('id_categoria_veiculo')->references('id')->on('categoria_veiculos')->onDelete('cascade');
             $table->foreign('id_paragem')->references('id')->on('paragens')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps(); 
         });
     }

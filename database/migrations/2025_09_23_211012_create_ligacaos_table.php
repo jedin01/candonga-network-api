@@ -25,7 +25,7 @@ return new class extends Migration {
 
             $table->float("distancia")->nullable();
             $table->decimal("custo", 8, 2)->nullable(); 
-
+            $table->softDeletes();
             $table->timestamps();
         });
     }
