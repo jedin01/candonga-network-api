@@ -6,7 +6,8 @@
         <title>Formulário SVG Inline</title>
         <style>
         .container{
-             scale: 0.8;
+             scale: .9;
+             padding-top: 120px;
         }
             body{
                
@@ -20,10 +21,12 @@
                
                .taxi__img{
                    img{
-                       width: 500px;
+                       width: 450px;
                    }
                    position: absolute;
                    z-index: 50;
+                   top: 0px;
+                   
                }
              form{
                  display: flex;
