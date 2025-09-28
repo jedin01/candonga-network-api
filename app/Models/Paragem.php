@@ -17,9 +17,14 @@ class Paragem extends Model
     protected $table = 'paragens';
 
 
-    public function categoria()
+    public function categoriaParagem()
     {
-        return $this->belongsTo(CategoriaVeiculo::class, "id_categoria");
+        return $this->belongsTo(CategoriaParagem::class, "id_categoria");
+    }
+    
+    public function categoriaVeiculo()
+    {
+        return $this->hasMany(CategoriaVeiculo::class);
     }
 
 }
