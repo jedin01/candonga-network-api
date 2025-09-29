@@ -121,11 +121,11 @@
                 </div>
                 <div class="inpt__container">
                     <p class="txt__p">Latitude</p>
-                    <input type="text" name="latitude" id="">
+                    <input type="text" name="latitude" id="" readonly>
                 </div>
                 <div class="inpt__container">
                     <p class="txt__p">Longitude</p>
-                    <input type="text" name="longitude" id="">
+                    <input type="text" name="longitude" id="" readonly>
                 </div>
     
                 <div class="submmit__btn">
