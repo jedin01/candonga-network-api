@@ -10,15 +10,15 @@
              padding-top: 120px;
         }
             body{
-               
+
                 font-family: "Archivo", sans-serif;
              display: flex;
              align-items: center;
              height: 100vh;
              margin:0;
                justify-content: center;
-               
-               
+
+
                .taxi__img{
                    img{
                        width: 450px;
@@ -26,7 +26,7 @@
                    position: absolute;
                    z-index: 50;
                    top: 0px;
-                   
+
                }
              form{
                  display: flex;
@@ -101,13 +101,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     </head>
     <body>
-        
+
         <div class="taxi__img">
             <img src="taxi.png" alt="">
         </div>
         <div class="container">
             <form action="" >
-    
+
                 <p class="top__txt">CADASTRO DE PARAGENS</p>
                 <div class="inpt__container">
                     <p class="txt__p">Nome</p>
@@ -116,7 +116,10 @@
                 <div class="inpt__container">
                     <p class="txt__p">Categoria</p>
                     <select name="id_categoria" id="">
-                        <option value=""></option>
+                        <option>Selecione uma categoria</option>
+                        @foreach($categoriasParagem as $categoria)
+                        <option value="{{$categoria->id}}">{{$categoria->nome}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="inpt__container">
@@ -127,7 +130,7 @@
                     <p class="txt__p">Longitude</p>
                     <input type="text" name="longitude" id="" readonly>
                 </div>
-    
+
                 <div class="submmit__btn">
                     <button type="submmit">CADASTRAR</button>
                 </div>
@@ -180,7 +183,7 @@
                      style="fill:none;stroke:#000000;stroke-width:1.3;stroke-dasharray:none"
                      d="m 40.3948,90.518191 65.35075,-3.383857 62.60137,0.422981 -4.22983,51.815315 -1.48043,42.9327 -1.05746,16.70779 -55.83365,1.90343 -40.183309,0.63447 -21.995074,-0.42298 -0.845966,-33.83858 -2.114909,-64.92777 z"
                      id="path1" />
-    
+
                      <path
                      style="fill:none;stroke:#000000;stroke-width:0.9;stroke-dasharray:none"
                      d="m 64.6343,176.98925 c 0.845682,15.82634 0.845682,15.82634 0.845682,15.82634 l 35.035408,-0.48324 38.17653,-1.08731 0.48324,-16.18878 -44.096294,0.48325 z"
@@ -197,7 +200,7 @@
                      style="fill:none;stroke:#000000;stroke-width:0.6;stroke-dasharray:none"
                      d="m 85.586884,159.12956 0.182488,11.49674 66.973108,-1.09493 -0.36498,-10.94928 h -42.15473 z"
                      id="path6" /></g></g></svg>
-    
+
 
         </div>
 </body>

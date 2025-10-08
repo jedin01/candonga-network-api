@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('paragens', function (Blueprint $table) {
             $table->id();
                 $table->string('nome');
-                $table->decimal('latitude', 10, 7);
-                $table->decimal('longitude', 10, 7);
+                $table->decimal('latitude', 10, 7)->nullable();
+                $table->decimal('longitude', 10, 7)->nullable();
                 $table->unsignedBigInteger('id_categoria');
                 $table->timestamps();
                 $table->softDeletes();
