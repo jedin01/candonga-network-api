@@ -9,6 +9,9 @@
              scale: .9;
              padding-top: 120px;
         }
+        .nome__option{
+            margin-right:20px;
+        }
             body{
 
                 font-family: "Archivo", sans-serif;
@@ -55,9 +58,14 @@
                      margin-top: 8px;
                      margin-left: -55px;
                  }
+                 
+                 select option{
+                     margin-left: -20px;
+                 }
+                 }
                  input{
                      height: 35px;
-                     width: 250px;
+                     width: 200px;
                      margin-top: 8px;
                      margin-left: -20px;
                  }
@@ -74,6 +82,7 @@
                  text-align: center;
                  margin: 25px ;
              }
+
              .submmit__btn{
                  display: flex;
                  align-items: center;
@@ -106,12 +115,17 @@
             <img src="taxi.png" alt="">
         </div>
         <div class="container">
-            <form action="" >
+            <form action="{{route("",)}}" >
 
                 <p class="top__txt">CADASTRO DE PARAGENS</p>
                 <div class="inpt__container">
                     <p class="txt__p">Nome</p>
-                    <input type="text" name="nome" id="">
+                    <select name="nome" id="">
+                        <option class="nome__option">Selecione um nome</option>
+                        @foreach($paragens as $paragem)
+                        <option class="nome__option" value="{{$paragem->nome}}">{{$paragem->nome}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="inpt__container">
                     <p class="txt__p">Categoria</p>

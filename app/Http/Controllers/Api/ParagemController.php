@@ -20,7 +20,7 @@ class ParagemController extends Controller
             "nome" => "required|string|max:255",
             "latitude" => "required|numeric",
             "longitude" => "required|numeric",
-            "id_bairro" => "required|integer",
+            "id_categoria" => "required|integer",
         ]);
 
         $paragem = Paragem::create($validated);
@@ -57,7 +57,7 @@ class ParagemController extends Controller
             "nome" => "sometimes|string|max:255",
             "latitude" => "sometimes|numeric",
             "longitude" => "sometimes|numeric",
-            "id_bairro" => "sometimes|integer",
+            "id_categoria" => "sometimes|integer",
         ]);
 
         $paragem->update($validated);
@@ -83,4 +83,4 @@ class ParagemController extends Controller
             200,
         );
     }
-}
+}p
