@@ -16,7 +16,7 @@ return new class extends Migration
                 $table->string('nome');
                 $table->decimal('latitude', 10, 7)->nullable();
                 $table->decimal('longitude', 10, 7)->nullable();
-                $table->unsignedBigInteger('id_categoria');
+                $table->unsignedBigInteger('id_categoria')->nullable();
                 $table->timestamps();
                 $table->softDeletes();
                 $table->foreign('id_categoria')->references('id')->on('categoria_veiculos')->onDelete('cascade');
