@@ -18,13 +18,8 @@ COPY . $HOME
 #
 #   $ docker build --secret id=offlineKey,src=$HOME/.vaadin/offlineKey .
 
-RUN --mount=type=cache,target=/root/.m2 \
-    --mount=type=secret,id=proKey \
-    --mount=type=secret,id=offlineKey \
-    RUN --mount=type=cache,target=/root/.m2 \
-        ./mvnw clean package -Pproduction -DskipTests
+RUN sh -c './mvnw clean package -Pproduction -DskipTests'
 
-    
 FROM eclipse-temurin:21-jre-alpine
 COPY --from=build /app/target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar", "--spring.profiles.active=prod"]
